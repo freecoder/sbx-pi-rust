@@ -1,13 +1,13 @@
 # sbx-pi-rust
 Docker SBX Pi.dev Rust
 
-# Docker
+## Docker Hub Image
 
 ```
 docker pull freecoderhub/sbx-pi-rust
 ```
 
-# Docker SBX Agent Kit
+## Docker SBX Agent Kit
 
 ```
 schemaVersion: "2"
@@ -50,7 +50,7 @@ commands:
 ```
 
 
-# Docker SBX Windows Script
+## Docker SBX Windows Script
 
 ```
 @echo off
