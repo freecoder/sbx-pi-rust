@@ -3,7 +3,7 @@ FROM docker/sandbox-templates:shell
 USER root
 
 ### Ubuntu Packages ###
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     build-essential \
     fd-find \
     ripgrep \
@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     vim \
     nodejs \
     npm \
+    golang-go \
     python3 \
     python3-pip \
     python3-venv \
@@ -49,5 +50,10 @@ RUN /usr/local/bin/uv tool install semble
 
 ### CodeGraph ###
 RUN /usr/bin/npm install -g @colbymchenry/codegraph
+
+### Amend PATH
+ENV PATH="/home/agent/.local:$PATH"
+ENV PATH="/home/agent/.local/bin:$PATH"
+ENV PATH="/home/agent/.cargo/bin:$PATH"
 
 ENTRYPOINT ["pi"]
