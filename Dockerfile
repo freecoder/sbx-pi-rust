@@ -3,7 +3,8 @@ FROM docker/sandbox-templates:shell
 USER root
 
 ### Ubuntu Packages ###
-RUN apt-get update && apt-get upgrade -y &&  apt-get install -y \
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
     build-essential \
     fd-find \
     ripgrep \
@@ -13,6 +14,7 @@ RUN apt-get update && apt-get upgrade -y &&  apt-get install -y \
     vim \
     nodejs \
     npm \
+    golang-go \
     python3 \
     python3-pip \
     python3-venv \
